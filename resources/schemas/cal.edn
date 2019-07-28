@@ -1,0 +1,43 @@
+{
+  :queries {
+    :eventlist {
+      :type (list :event)
+      :description "Get events"
+      :args {
+        :start {
+          :type (non-null Int)}
+        :end {
+          :type (non-null Int)}
+        :keyword {
+          :type String
+          :description "Search term"}}
+      :resolve :cal-resolve-events
+    }
+    :eventdetails {
+      :description "Get event details"
+      :type :event
+      :args {
+        :eventlist {
+          :type (list String)}
+        }
+      :resolve :cal-resolve-event-details
+    }
+  }
+  
+  :objects {
+    :event {
+      :fields {
+        :id      {:type String}
+        :start   {:type (non-null Int)}
+        :end     {:type (non-null Int)}
+        :summary {:type String}
+        :desc    {:type String}
+        :loc     {:type String}
+        :status  {:type String}
+        :uid     {:type String}
+      }
+    }
+  }
+}
+
+;java.time/ZonedDateTime)}

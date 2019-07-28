@@ -1,0 +1,35 @@
+; Set your Nextcloud and page environment configuration here
+
+{
+  ; Site config
+  :html {:title "info.local"}
+ 
+  ; Database connection
+  :db {:type     :redis
+       :spec
+         {:uri      "http://127.0.0.1:6379/"}}
+  
+  ; Redis conf
+  ; Unsupported yet
+  :redis {:select 0}
+  
+  
+  ; Nextcloud user
+  ; example :basic-auth ["username" "password"]
+
+  :basic-auth ["example" "example"]
+  
+
+  ; Calendar url, or shared calendar url
+  ; Such as "https://my.cloud/remote.php/dav/calendars/..."
+
+  :cal-url "https://something.cloud/remote.php/dav/calendars/example/personal_shared_by_Something/"
+  :timezone "Europe/Helsinki"
+
+
+  ; Deck stack url
+  ; https://my.cloud/index.php/apps/deck/api/v1.0/boards/...
+
+  :deck-url "https://something.cloud/index.php/apps/deck/api/v1.0/boards/somenumber/stacks"
+
+}
