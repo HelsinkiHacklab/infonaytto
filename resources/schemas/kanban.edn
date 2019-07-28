@@ -1,0 +1,77 @@
+{
+:queries {
+  :stacklist { ; ei saa sisältää väliviivaa!
+    :type (list :stack)
+    :description "Get stacks"
+    :args {}
+    :resolve :kanban-resolve-stacks }
+  :cardlist { ; ei saa sisältää väliviivaa!
+    :type (list :card)
+    :description "Get cards"
+    :args {}
+    :resolve :kanban-resolve-cards }
+
+  ;:getstackdata {
+  ;  :type stackdata
+  ;  :description "Get stack data"
+  ;  :args {}
+  ;  :resolve :get-stack-data }
+  
+  ;:stackitems { ; ei saa sisältää väliviivaa!
+  ;  :type (list :stackitem)
+  ;  :description "Get stacks"
+  ;  :args {:stackref {:type (list String)} }
+  ;  :resolve :get-stack-items }
+  ;
+  ;
+  ;:findcards {
+  ;  :type (list :card)
+  ;  :description "Finds cards"
+  ;  :args {:cardId {:type String} }
+  ;  :resolve :find-cards }
+  }
+
+:objects {
+  :participantobj {
+    :fields {
+      :displayname      {:type String}}}
+  :assignedUser {
+    :fields {
+      :participant      {:type :participantobj}}}
+  :label {
+    :fields {
+      :title            {:type String}
+      :color            {:type String}}}
+  :card {
+    :fields {
+      :description      {:type String}
+      :archived         {:type String}
+      :labels           {:type (list :label)}
+      :lastEditor       {:type String}
+      :stackId          {:type String}
+      :commentsUnread   {:type String}
+      :attachments      {:type String}
+      :createdAt        {:type String}
+      :type             {:type String}
+      :title            {:type String}
+      :deletedAt        {:type String}
+      :attachmentCount  {:type String}
+      :overdue          {:type String}
+      :lastModified     {:type String}
+      :id               {:type Int}
+      :order            {:type String}
+      :owner            {:type String}
+      :duedate          {:type String}
+      :assignedUsers    {:type (list :assignedUser)}}}
+  :stack {
+    :fields {
+      :id           {:type Int}
+      :title        {:type String}
+      :deletedAt    {:type String}
+      :lastModified {:type String}
+      :order        {:type Int}
+      :cards        {:type (list :card)}
+      }
+    }
+  }
+}
